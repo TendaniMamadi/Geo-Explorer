@@ -11,10 +11,12 @@ moreinfo TEXT NOT NULL
 CREATE TABLE questions(
 id SERIAL PRIMARY KEY,
 question TEXT NOT NULL UNIQUE,
-answer TEXT NOT NULL
+answer TEXT NOT NULL,
+country_id INT REFERENCES countries(id);
 );
 CREATE TABLE phrases(
 id SERIAL PRIMARY KEY,
 phrase TEXT NOT NULL UNIQUE
+country_id INT REFERENCES countries(id);
 )
 
