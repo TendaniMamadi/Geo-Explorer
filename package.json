@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+    "mocha": "^10.2.0"
+=======
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -22,5 +25,6 @@
     "pg": "^8.11.3",
     "pg-promise": "^11.5.4",
     "promise": "^8.3.0"
+>>>>>>> cfa219ae038eae81bb59a4843623844b9ca9b643
   }
 }
