@@ -4,8 +4,8 @@
 }
 
 header {
-  background-color: #f8f9fa;
-  padding: 20px;
+  /* background-color: #f8f9fa; */
+  /* padding: 20px; */
   text-align: center;
 }
 
@@ -49,8 +49,8 @@ input[type="text"], textarea {
 }
 
 footer {
-  background-color: #f8f9fa;
-  padding: 20px;
+  /* background-color: #f8f9fa; */
+  /* padding: 20px; */
   text-align: center;
 }
 
@@ -62,4 +62,15 @@ table {
 td {
   border: 1px solid #dee2e6;
   padding: 10px;
+}
+
+body{
+  background-image: url('/images/20470970.jpg');
+
+  /* Specify background properties */
+  background-size: cover; /* You can use other values like 'contain' or specific dimensions */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center center; /* Center the image horizontally and vertically */
+  background-attachment: fixed; 
+  height: 100vh;
 }
