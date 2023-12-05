@@ -44,6 +44,36 @@ const PORT = process.env.PORT || 3030;
 
 app.use(express.json());
 
+
+
 app.get("/", sample.intro);
+
+
+app.get("/visualModel",async function (req,res){
+  res.render("visual_model")
+});
+
+app.get("/moreInfo",async function (req,res){
+  res.render("more_info")
+});
+
+app.get("/quiz",async function (req,res){
+  res.render("quiz")
+});
+
+app.get("/phrase",async function (req,res){
+  res.render("phrase")
+});
+
+app.get("/leaderBoard",async function (req,res){
+  res.render("leaderboard")
+});
+
+
+app.get("/challenge",async function (req,res){
+  res.render("challenge")
+});
+
+
 
 app.listen(PORT, () => console.log(`App started on port: ${PORT}`));
