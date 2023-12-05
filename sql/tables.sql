@@ -2,20 +2,19 @@ CREATE TABLE players(
 id SERIAL PRIMARY KEY,
 username TEXT NOT NULL UNIQUE,
 score INT
-)
-
+);
 CREATE TABLE countries(
 id SERIAL PRIMARY KEY,
-countryname TEXT NOT NULL UNIQUE
-
-)
-
+countryname TEXT NOT NULL UNIQUE,
+moreinfo TEXT NOT NULL
+);
 CREATE TABLE questions(
 id SERIAL PRIMARY KEY,
-question TEXT NOT NULL UNIQUE
-)
-
+question TEXT NOT NULL UNIQUE,
+answer TEXT NOT NULL
+);
 CREATE TABLE phrases(
 id SERIAL PRIMARY KEY,
 phrase TEXT NOT NULL UNIQUE
 )
+
