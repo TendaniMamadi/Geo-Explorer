@@ -10,7 +10,7 @@ header {
 }
 
 h1 {
-  color: #6c757d;
+  color: white;
 }
 
 main {
@@ -19,12 +19,19 @@ main {
   justify-content: space-around;
   padding: 20px;
 }
+
 main div:nth-child(1),
 main div:nth-child(2) {
   height: 400px;
 }
 
-.user-info,.flag-recognition,.flag-recognition, .quiz, .avatar-customization, .problem-solving, .leaderboard {
+.user-info,
+.flag-recognition,
+.flag-recognition,
+.quiz,
+.avatar-customization,
+.problem-solving,
+.leaderboard {
   width: 45%;
   margin: 10px;
   padding: 20px;
@@ -40,7 +47,8 @@ img {
   margin-bottom: 20px;
 }
 
-input[type="text"], textarea {
+input[type="text"],
+textarea {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -64,13 +72,29 @@ td {
   padding: 10px;
 }
 
-body{
+body {
   background-image: url('/images/20470970.jpg');
 
   /* Specify background properties */
-  background-size: cover; /* You can use other values like 'contain' or specific dimensions */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  background-position: center center; /* Center the image horizontally and vertically */
-  background-attachment: fixed; 
+  background-size: cover;
+  /* You can use other values like 'contain' or specific dimensions */
+  background-repeat: no-repeat;
+  /* Prevent the image from repeating */
+  background-position: center center;
+  /* Center the image horizontally and vertically */
+  background-attachment: fixed;
   height: 100vh;
+}
+
+label {
+  color: antiquewhite;
+}
+
+p {
+  color: antiquewhite;
+}
+
+h2{
+  color: antiquewhite;
+  text-align: left;
 }
