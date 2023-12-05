@@ -1,5 +1,5 @@
  <div class="quiz">
-      <h2>4.Quiz Time</h2>
+      <h2>Quiz Time</h2>
       {{#each questions}}
         <div class="question">
           <p>{{this.text}}</p>
@@ -9,6 +9,6 @@
           <input type="text" id="{{questions.id}}" placeholder="Your answer">
         </div>
       {{/each}}
-       <button >Back</button>
-        <button >Next</button>
+       <button type="submit">Back</button>
+        <button type="submit">Next</button>
     </div>
