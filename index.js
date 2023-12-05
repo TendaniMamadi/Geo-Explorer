@@ -7,12 +7,15 @@ import bodyParser from "body-parser";
 
 import sampleData from "./render.js";
 
+import GeoExplorerServices from "./services/db_queries.js"
+import GeoExplorerAPIRoutes from "./routes/geo-explorer-api-routes.js";
+
 const sample = sampleData();
 
 const pgp = pgPromise();
 
 const connectionOptions = {
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL
 };
 
 const db = pgp(connectionOptions);
@@ -25,6 +28,9 @@ const handlebarSetup = exphbs.engine({
 });
 
 const app = express();
+
+const geoExplorerServices = GeoExplorerServices(db)
+const geoExplorerAPIRoutes = GeoExplorerAPIRoutes(geoExplorerServices)
 
 //Setting Up Handlebars as the View Engine:
 app.engine("handlebars", handlebarSetup);
@@ -75,6 +81,6 @@ app.get("/challenge",async function (req,res){
   res.render("challenge")
 });
 
-
+app.get("/api/questions/:country", geoExplorerAPIRoutes.getQuestions)
 
 app.listen(PORT, () => console.log(`App started on port: ${PORT}`));
