@@ -40,7 +40,7 @@ export default function sampleData() {
       },
     ];
 
-    res.render("home", {
+    res.render("homepage", {
       briefIntro,
       questions,
       challengeDescription,
