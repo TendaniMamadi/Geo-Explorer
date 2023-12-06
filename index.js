@@ -56,7 +56,7 @@ app.get("/", async function (req, res) {
   res.render("homepage");
 });
 
-app.get("/quiz/:id", dataset.getQuestions)
+app.get("/quiz/:country", dataset.getQuestions)
 
 app.get("/visualModel",async function (req,res){
   res.render("visualModel")

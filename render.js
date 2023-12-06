@@ -10,9 +10,12 @@ export default function displayData() {
   }
   
   async function getQuestions(req, res) {
-    const response = await axios.get("http://localhost:3030/api/questions/:country");
+    const country = req.params.country
+
+    const response = await axios.get(`http://localhost:3030/api/questions/${country}`);
 
     var questionData = response.data
+    console.log(questionData);
 
     res.render("quiz", questionData)
   }
@@ -20,7 +23,7 @@ export default function displayData() {
   async function getMoreInfo(req, res) {
 
     const country = req.query.country
-    console.log(country);
+    // console.log(country);
 
     const response = await axios.get(
       `http://localhost:3030/api/moreInfo?country=${country}`
@@ -30,7 +33,9 @@ export default function displayData() {
 
     var moreInfoData = response.data
 
-    res.render("moreInfo", moreInfoData);
+    // console.log(moreInfoData)
+
+    res.render("moreInfo", { moreInfoData, country });
   }
 
   return {
