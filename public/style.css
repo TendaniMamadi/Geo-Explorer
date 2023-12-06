@@ -163,7 +163,7 @@ h2 {
   box-sizing: border-box;
 }
 
-.flag-recognition button {
+.flag-recognition button, .more-info-btn {
   border: none;
   outline: none;
   width: 100px;
@@ -174,7 +174,7 @@ h2 {
   border-radius: 20px;
 }
 
-.flag-recognition button:hover {
+.flag-recognition button:hover, .more-info-btn:hover {
   cursor: pointer;
   background: #ffcc00;
   color: #000;
@@ -276,7 +276,7 @@ h2 {
   box-sizing: border-box;
 }
 
-.quiz button[type="submit"] {
+.quiz button[type="submit"]{
   border: none;
   outline: none;
   width: 100px;
@@ -362,4 +362,14 @@ h2 {
   cursor: pointer;
   background: #ffcc00;
   color: #000;
+}
+
+.flag {
+  height: 200px;
+  width: 320px;
+}
+
+.more-info-btn {
+  padding: 10px;
+  text-decoration: none;
 }
