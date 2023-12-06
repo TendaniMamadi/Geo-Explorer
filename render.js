@@ -1,54 +1,33 @@
-export default function sampleData() {
-  function intro(req, res) {
-    var briefIntro = {
-      title: "Globe Genius Africa - Kenya",
-      flagImageUrl:
-        "https://cdn.britannica.com/15/15-050-B075588A/Flag-Kenya.jpg?w=400&h=235&c=crop",
-      countryName: "Kenya",
-      countrySummary:
-        "Kenya, officially the Republic of Kenya, is a country in Eastern Africa. It is known for its diverse landscapes, wildlife, and cultures. The capital and largest city is Nairobi.",
-    };
+import axios from "axios"
 
-    var questions = [
-      {
-        id: "q1",
-        text: "What is the capital of Kenya?",
-        options: ["Nairobi", "Mombasa", "Kisumu", "Nakuru"],
-        correctAnswer: "Nairobi",
-      },
-      {
-        id: "q2",
-        text: "Where is Kenya located in Africa",
-        options: ["North", "West", "East", "South"],
-        correctAnswer: "East",
-      },
-    ];
+export default function displayData() {
+  async function getPlayer(req, res) {
+    const response = await axios.get("http://localhost:3030/api/names");
 
-    var challengeDescription = {
-      challenge:
-        "Nairobi National Park is threatened by urban encroachment and habitat loss. Can you propose a conservation plan that balances urban development and wildlife protection?",
-    };
+    var responseData = response.data
 
-    var leaders = [
-      {
-        name: "John",
-        text: "32 global-coins",
-      },
-      {
-        name: "Hugo",
-        text: "16 global-coins",
-      },
-    ];
+    res.render("leaderBoard", responseData)
+  }
+  
+  async function getQuestions(req, res) {
+    const response = await axios.get("http://localhost:3030/api/questions/:country");
 
-    res.render("homepage", {
-      briefIntro,
-      questions,
-      challengeDescription,
-      leaders,
-    });
+    var questionData = response.data
+
+    res.render("quiz", questionData)
+  }
+
+  async function getMoreInfo(req, res) {
+    const response = await axios.get("http://localhost:3030/api/moreInfo");
+
+    var moreInfoData = response.data
+
+    res.render("moreInfo", moreInfoData);
   }
 
   return {
-    intro,
+    getPlayer,
+    getQuestions,
+    getMoreInfo,
   };
 }

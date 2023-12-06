@@ -5,12 +5,12 @@ import exphbs from "express-handlebars";
 import "dotenv/config";
 import bodyParser from "body-parser";
 
-import sampleData from "./render.js";
+import displayData from "./render.js";
 
 import GeoExplorerServices from "./services/db_queries.js"
 import GeoExplorerAPIRoutes from "./routes/geo-explorer-api-routes.js";
 
-const sample = sampleData();
+const dataset = displayData();
 
 const pgp = pgPromise();
 
@@ -52,8 +52,11 @@ app.use(express.json());
 
 
 
-app.get("/", sample.intro);
+app.get("/", async function (req, res) {
+  res.render("homepage");
+});
 
+app.get("/quiz/:id", dataset.getQuestions)
 
 app.get("/visualModel",async function (req,res){
   res.render("visualModel")
@@ -63,23 +66,18 @@ app.get("/moreInfo",async function (req,res){
   res.render("moreInfo")
 });
 
-app.get("/quiz",async function (req,res){
-  res.render("quiz")
-});
-
 app.get("/phrase",async function (req,res){
   res.render("phrase")
 });
 
-app.get("/leaderBoard",async function (req,res){
-  res.render("leaderBoard")
-});
-
+app.get("/leaderBoard", dataset.getPlayer)
 
 app.get("/challenge",async function (req,res){
   res.render("challenge")
 });
 
 app.get("/api/questions/:country", geoExplorerAPIRoutes.getQuestions)
+app.get("/api/names", geoExplorerAPIRoutes.getPlayerNames)
+app.get("/api/moreInfo", geoExplorerAPIRoutes.getMoreInfo)
 
 app.listen(PORT, () => console.log(`App started on port: ${PORT}`));

@@ -1,4 +1,12 @@
-export default function GeoExplorerAPIRoutes(geoExplorerServices){
+export default function GeoExplorerAPIRoutes(geoExplorerServices) {
+    async function getPlayerNames(req, res) {
+        let listOfPlayers = await geoExplorerServices.getUserNames();
+
+        res.json({
+          listOfPlayers,
+        });
+    }
+
     async function getQuestions(req, res) {
         const country = req.params.country;
 
@@ -10,8 +18,22 @@ export default function GeoExplorerAPIRoutes(geoExplorerServices){
             questions
         })
     }
+
+    async function getMoreInfo(req, res) {
+        const countryName = req.params.country
+
+        const moreInfo = await geoExplorerServices.getCountryFacts()
+
+        
+        res.json({
+            moreInfo
+        })
+        
+    }
     
     return {
-        getQuestions
-    }
+      getPlayerNames,
+      getQuestions,
+      getMoreInfo
+    };
 }

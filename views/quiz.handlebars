@@ -1,14 +1,14 @@
  <div class="quiz">
       <h2>Quiz Time</h2>
-      {{#each questions}}
+      {{!-- {{#each questions}} --}}
         <div class="question">
-          <p>{{this.text}}</p>
-          {{#each options}}
+          <p>{{question}}</p>
+          {{!-- {{#each options}}
           <li>{{this}}</li>
-          {{/each}}
-          <input type="text" id="{{questions.id}}" placeholder="Your answer">
+          {{/each}} --}}
+          <input type="text" id="{{question}}" placeholder="Your answer">
         </div>
-      {{/each}}
+      {{!-- {{/each}} --}}
        <button type="submit">Back</button>
         <button type="submit">Next</button>
     </div>
