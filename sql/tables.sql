@@ -6,7 +6,8 @@ score INT
 CREATE TABLE countries(
 id SERIAL PRIMARY KEY,
 countryname TEXT NOT NULL UNIQUE,
-moreinfo TEXT NOT NULL
+moreinfo TEXT NOT NULL,
+flag TEXT
 );
 CREATE TABLE questions(
 id SERIAL PRIMARY KEY,
