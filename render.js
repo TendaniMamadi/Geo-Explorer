@@ -29,7 +29,6 @@ export default function displayData() {
 
 
     var moreInfoData = response.data
-    console.log(moreInfoData);
 
     res.render("moreInfo", moreInfoData);
   }

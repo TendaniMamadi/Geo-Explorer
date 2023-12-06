@@ -24,7 +24,7 @@ export default function GeoExplorerServices(db) {
         const selectQuery = `SELECT moreinfo FROM countries WHERE countryname = $1`
         const result = await db.any(selectQuery, [country]);
         
-        return result
+        return result[0].moreinfo
     }
     return {
       getUserNames,

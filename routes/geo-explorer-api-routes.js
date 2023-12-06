@@ -20,7 +20,7 @@ export default function GeoExplorerAPIRoutes(geoExplorerServices) {
     }
 
     async function getMoreInfo(req, res) {
-        const countryName = req.params.country
+        const countryName = req.query.country;
 
         const moreInfo = await geoExplorerServices.getCountryFacts(countryName);
 
