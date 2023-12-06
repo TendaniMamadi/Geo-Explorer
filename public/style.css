@@ -39,8 +39,7 @@ h1 {
 .flag-recognition,
 .moreInfo,
 .quiz,
-.phrase
-.problem-solving,
+.phrase .problem-solving,
 .leaderboard {
   width: 45%;
   margin: 10px;
@@ -164,7 +163,8 @@ h2 {
   box-sizing: border-box;
 }
 
-.flag-recognition button, .more-info-btn {
+.flag-recognition button,
+.more-info-btn {
   border: none;
   outline: none;
   width: 100px;
@@ -175,7 +175,8 @@ h2 {
   border-radius: 20px;
 }
 
-.flag-recognition button:hover, .more-info-btn:hover {
+.flag-recognition button:hover,
+.more-info-btn:hover {
   cursor: pointer;
   background: #ffcc00;
   color: #000;
@@ -262,7 +263,7 @@ h2 {
 
 /* Quiz */
 
-.quiz{
+.quiz {
   width: 90%;
   max-width: 400px;
   height: auto;
@@ -277,7 +278,7 @@ h2 {
   box-sizing: border-box;
 }
 
-.quiz button[type="submit"]{
+.quiz button[type="submit"] {
   border: none;
   outline: none;
   width: 100px;
@@ -295,9 +296,11 @@ h2 {
 }
 
 
+
+
 /* moreInfo */
 
-.moreInfo{
+.moreInfo {
   width: 90%;
   max-width: 400px;
   height: auto;
@@ -332,7 +335,7 @@ h2 {
 
 /* phrase */
 
-.phrase{
+.phrase {
   width: 90%;
   max-width: 400px;
   height: auto;
@@ -347,7 +350,7 @@ h2 {
   box-sizing: border-box;
 }
 
-.phrase .record-btn{
+.phrase .record-btn {
   border: none;
   outline: none;
   width: 100px;
@@ -373,4 +376,24 @@ h2 {
 .more-info-btn {
   padding: 10px;
   text-decoration: none;
+}
+
+.moreInfo .styled-link {
+  padding: 10px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  width: 100px;
+  height: 40px;
+  background: rgb(229, 227, 227);
+  color: #000000;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+
+.moreInfo .styled-link:hover {
+  cursor: pointer;
+  background: #ffcc00;
+  color: #000;
 }
