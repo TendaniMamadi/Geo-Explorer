@@ -72,7 +72,7 @@ app.get("/phrase",async function (req,res){
 });
 
 app.get("/leaderBoard",async function (req,res){
-  res.render("leaderboard")
+  res.render("leaderBoard")
   console.log("helooooooooooooooooooooo");
 });
 
