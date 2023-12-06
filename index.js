@@ -56,11 +56,11 @@ app.get("/", sample.intro);
 
 
 app.get("/visualModel",async function (req,res){
-  res.render("visual_model")
+  res.render("visualModel")
 });
 
 app.get("/moreInfo",async function (req,res){
-  res.render("more_info")
+  res.render("moreInfo")
 });
 
 app.get("/quiz",async function (req,res){
@@ -73,7 +73,7 @@ app.get("/phrase",async function (req,res){
 
 app.get("/leaderBoard",async function (req,res){
   res.render("leaderboard")
-  console.log("helooooooooooooooooooooo");
+ 
 });
 
 
