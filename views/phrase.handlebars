@@ -1,84 +1,140 @@
-  {{!-- <style>
-        .avatar-customization {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+{{!-- <style>
+    .avatar-customization {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .avatar-customization h2 {
+        color: #3498db;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .avatar-customization p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+    }
+
+    .record-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .record-button img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .record-button .record-btn {
+        padding: 15px 30px;
+        font-size: 16px;
+        color: #fff;
+        text-decoration: none;
+        background-color: #e74c3c;
+        /* Red color, change to your preference */
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    }
+
+    .record-button .record-btn:hover {
+        background-color: #c0392b;
+        /* Darker red color on hover */
+    }
+
+    /* Animation for the record button */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
         }
 
-        .avatar-customization h2 {
-            color: #3498db;
-            font-size: 24px;
-            margin-bottom: 10px;
+        50% {
+            transform: scale(1.1);
         }
 
-        .avatar-customization p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #333;
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .recording {
+        animation: pulse 1s infinite;
+    }
+</style> --}}
+
+
+
+<div class="phrase">
+    <h2>Language Attempt</h2>
+    <p>Say hello in </p>
+    {{!-- <button class="record-btn" onclick="toggleRecording()">Record</button> --}}
+
+
+<div>Teachable Machine Audio Model</div>
+<button class="record-btn" type="button" onclick="init()">Start</button>
+<div id="label-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
+
+<script type="text/javascript">
+    // more documentation available at
+    // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "https://teachablemachine.withgoogle.com/models/W6_t5543t/";
+
+    async function createModel() {
+        const checkpointURL = URL + "model.json"; // model topology
+        const metadataURL = URL + "metadata.json"; // model metadata
+
+        const recognizer = speechCommands.create(
+            "BROWSER_FFT", // fourier transform type, not useful to change
+            undefined, // speech commands vocabulary feature, not useful for your models
+            checkpointURL,
+            metadataURL);
+
+        // check that model and metadata are loaded via HTTPS requests.
+        await recognizer.ensureModelLoaded();
+
+        return recognizer;
+    }
+
+    async function init() {
+        const recognizer = await createModel();
+        const classLabels = recognizer.wordLabels(); // get class labels
+        const labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < classLabels.length; i++) {
+            labelContainer.appendChild(document.createElement("div"));
         }
 
-        .record-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .record-button img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .record-button .record-btn {
-            padding: 15px 30px;
-            font-size: 16px;
-            color: #fff;
-            text-decoration: none;
-            background-color: #e74c3c; /* Red color, change to your preference */
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-        }
-
-        .record-button .record-btn:hover {
-            background-color: #c0392b; /* Darker red color on hover */
-        }
-
-        /* Animation for the record button */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
+        // listen() takes two arguments:
+        // 1. A callback function that is invoked anytime a word is recognized.
+        // 2. A configuration object with adjustable fields
+        recognizer.listen(result => {
+            const scores = result.scores; // probability of prediction for each class
+            // render the probability scores per class
+            for (let i = 0; i < classLabels.length; i++) {
+                const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
             }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
+        }, {
+            includeSpectrogram: true, // in case listen should return result.spectrogram
+            probabilityThreshold: 0.75,
+            invokeCallbackOnNoiseAndUnknown: true,
+            overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
+        });
 
-        .recording {
-            animation: pulse 1s infinite;
-        }
-    </style> --}}
-
-
-
-    <div class="phrase">
-        <h2>Language Attempt</h2>
-        <p>How do you say "Hello, how are you?" in Swahili?</p>
-        <button class="record-btn" onclick="toggleRecording()">Record</button>
-    </div>
-
-    <script>
-        // Function to toggle recording state and apply animation
-        function toggleRecording() {
-            const recordButton = document.querySelector('.record-btn');
-            recordButton.classList.toggle('recording');
-        }
-    </script>
-
+        // Stop the recognition in 5 seconds.
+        // setTimeout(() => recognizer.stopListening(), 1000);
+    }
+</script>
+</div>
