@@ -22,9 +22,9 @@ export default function GeoExplorerAPIRoutes(geoExplorerServices) {
     async function getMoreInfo(req, res) {
         const countryName = req.params.country
 
-        const moreInfo = await geoExplorerServices.getCountryFacts()
+        const moreInfo = await geoExplorerServices.getCountryFacts(countryName);
 
-        
+
         res.json({
             moreInfo
         })

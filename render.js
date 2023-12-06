@@ -18,9 +18,18 @@ export default function displayData() {
   }
 
   async function getMoreInfo(req, res) {
-    const response = await axios.get("http://localhost:3030/api/moreInfo");
+
+    const country = req.query.country
+    console.log(country);
+
+    const response = await axios.get(
+      `http://localhost:3030/api/moreInfo?country=${country}`
+    );
+
+
 
     var moreInfoData = response.data
+    console.log(moreInfoData);
 
     res.render("moreInfo", moreInfoData);
   }

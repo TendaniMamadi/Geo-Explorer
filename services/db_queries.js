@@ -20,10 +20,10 @@ export default function GeoExplorerServices(db) {
         return result.question;
     }
 
-    async function getCountryFacts() {
-        const selectQuery = `SELECT * FROM countries`
-        const result = await db.any(selectQuery);
-
+    async function getCountryFacts(country) {
+        const selectQuery = `SELECT moreinfo FROM countries WHERE countryname = $1`
+        const result = await db.any(selectQuery, [country]);
+        
         return result
     }
     return {
