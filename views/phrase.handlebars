@@ -1,6 +1,84 @@
-<div class="avatar-customization">
-      <h2>Language Attempt</h2>
-      <P>How do you say "Hello, how are you?" in Swahili?</P>
-      <img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/08-512.png" alt="record icon" height="300px">
-      <button>Record</button>
-</div>
+  {{!-- <style>
+        .avatar-customization {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .avatar-customization h2 {
+            color: #3498db;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .avatar-customization p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .record-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .record-button img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .record-button .record-btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            background-color: #e74c3c; /* Red color, change to your preference */
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .record-button .record-btn:hover {
+            background-color: #c0392b; /* Darker red color on hover */
+        }
+
+        /* Animation for the record button */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .recording {
+            animation: pulse 1s infinite;
+        }
+    </style> --}}
+
+
+
+    <div class="phrase">
+        <h2>Language Attempt</h2>
+        <p>How do you say "Hello, how are you?" in Swahili?</p>
+        <button class="record-btn" onclick="toggleRecording()">Record</button>
+    </div>
+
+    <script>
+        // Function to toggle recording state and apply animation
+        function toggleRecording() {
+            const recordButton = document.querySelector('.record-btn');
+            recordButton.classList.toggle('recording');
+        }
+    </script>
+

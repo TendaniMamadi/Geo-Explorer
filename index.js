@@ -62,9 +62,7 @@ app.get("/visualModel",async function (req,res){
   res.render("visualModel")
 });
 
-app.get("/moreInfo",async function (req,res){
-  res.render("moreInfo")
-});
+app.get("/moreInfo", dataset.getMoreInfo)
 
 app.get("/phrase",async function (req,res){
   res.render("phrase")

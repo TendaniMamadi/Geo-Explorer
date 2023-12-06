@@ -1,7 +1,56 @@
-<div class="flag-recognition">
+{{!-- <style>
+  
+      .flag-recognition {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.flag-recognition h2 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.flag-recognition img {
+    max-width: 100%;
+    height: 100px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px; 
+}
+
+.flag-recognition p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.flag-recognition button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.flag-recognition button:hover {
+    background-color: #218c53;
+}
+
+</style> --}}
+<div class="moreInfo">
       <h2>Flag Facts</h2>
       <img src="{{this.briefIntro.flagImageUrl}}" alt="Flag of {{this.briefIntro.countryName}}">
       <p>{{this.briefIntro.countrySummary}}</p>
-       <button >Answer Questions</button>
-        <button >Scan Again</button>
+       <button type="submit">Quiz</button>
+        <button type="submit">Scan</button>
 </div>
