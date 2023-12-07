@@ -15,8 +15,6 @@ export default function displayData() {
     const response = await axios.get(`http://localhost:3030/api/questions/${country}`);
 
     var questionData = response.data
-    
-    var options = ["Nairobi", "Mombasa", "Kisumu", "Nakuru"]
 
     res.render("quiz", questionData)
   }
@@ -33,8 +31,6 @@ export default function displayData() {
 
 
     var moreInfoData = response.data
-
-    // console.log(moreInfoData)
 
     res.render("moreInfo", { moreInfoData, country });
   }

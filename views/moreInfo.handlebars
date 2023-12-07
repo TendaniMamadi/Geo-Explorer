@@ -1,7 +1,7 @@
 <div class="moreInfo">
     <h2>Flag Facts</h2>
-    <img src="{{this.briefIntro.flagImageUrl}}" alt="Flag of {{this.briefIntro.countryName}}">
-    <p>{{this.moreInfoData.moreInfo}}</p>
+    <img src="{{this.moreInfoData.moreInfo.[0].flag}}" alt="Flag of {{this.moreInfoData.moreInfo.[0].countryname}}" class="flag">
+    <p>{{this.moreInfoData.moreInfo.[0].moreinfo}}</p>
     <a class="styled-link" href="/quiz/{{country}}">Quiz</a>
     <button type="submit">Scan</button>
 </div>
