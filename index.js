@@ -58,6 +58,8 @@ app.get("/", async function (req, res) {
 
 app.get("/quiz/:country", dataset.getQuestions)
 
+app.post("/quiz/:country", geoExplorerAPIRoutes.submitAnswers)
+
 app.get("/visualModel",async function (req,res){
   res.render("visualModel")
 });

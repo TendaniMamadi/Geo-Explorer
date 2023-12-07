@@ -1,13 +1,16 @@
 <div class="quiz">
   <h2>Quiz Time</h2>
-  {{#each questions}}
-  <p>{{this.question}}</p>
-  <div class="question countries">
-    {{#each options}}
-    <div>
-      <input type="radio" name="option" value="{{this}}">{{this}}
+      <form action="/quiz/{{this.country}}" method="POST">
+  {{#each questionData.questions}}
+  <div class="question">
+    <p>{{this.question}}</p>
+    <div class="countries">
+      {{#each options}}
+      <div>
+        <input type="radio" name="{{../ this.question}}" value="{{this}}">{{this}}
+      </div>
+      {{/each}}
     </div>
-    {{/each}}
   </div>
   {{/each}}
   <button type="submit">Submit</button>
@@ -51,7 +54,9 @@
   }
 
   .question {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 
@@ -67,6 +72,7 @@
     border: 1px solid #dee2e6;
     border-radius: 5px;
   }
+
 
   input {
     width: 100%;
@@ -86,17 +92,17 @@
 
 
   .quiz {
-    width: 90%;
-    height: auto;
-    background: rgba(0, 0, 0, 0.605);
-    border: 1px solid white;
-    box-shadow: 10px 5px 5px rgb(229, 227, 227);
-    color: white;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
+   width: 90%;
+  max-width: 400px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.835);
+  border: 1px solid white;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  color: black ;
 
   }
 
@@ -112,7 +118,7 @@
     outline: none;
     width: 100px;
     height: 40px;
-    background: rgb(229, 227, 227);
+    background: #ffcc00;
     color: #000000;
     font-size: 18px;
     border-radius: 20px;
@@ -135,3 +141,13 @@
     overflow: hidden;
   }
 </style>
+<script>
+    const form = document.querySelector("form");
+
+    const username = sessionStorage.getItem("user");
+
+    const action = `${form.action}?user=${username}`;
+
+    form.action = action;
+
+</script>

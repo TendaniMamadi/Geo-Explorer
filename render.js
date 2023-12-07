@@ -16,7 +16,7 @@ export default function displayData() {
 
     var questionData = response.data
 
-    res.render("quiz", questionData)
+    res.render("quiz", { questionData, country })
   }
 
   async function getMoreInfo(req, res) {

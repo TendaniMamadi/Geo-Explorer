@@ -50,12 +50,28 @@ export default function GeoExplorerServices(db) {
       await db.none(insertQuery, [username])
     }
 
+    async function checkAnswer(question) {
+      const selectQuery = `SELECT answer FROM questions WHERE question = $1`;
+
+      const result = await db.one(selectQuery, [question])
+
+      return result.answer;
+    }
+
+    async function addPoints(username) {
+      const updateQuery = `UPDATE players SET score = score + 2 WHERE username = $1`;
+
+      await db.none(updateQuery, [username])
+    }
 
     
     return {
       getUserNames,
       getCountryId,
       getQuestionsForCountry,
-      getCountryFacts
+      getCountryFacts,
+      checkAnswer,
+      registerUser,
+      addPoints
     };
 }
