@@ -74,6 +74,8 @@ app.get("/challenge",async function (req,res){
   res.render("challenge")
 });
 
+app.post("/register", geoExplorerAPIRoutes.register)
+
 app.get("/api/questions/:country", geoExplorerAPIRoutes.getQuestions)
 app.get("/api/names", geoExplorerAPIRoutes.getPlayerNames)
 app.get("/api/moreInfo", geoExplorerAPIRoutes.getMoreInfo)

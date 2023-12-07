@@ -12,6 +12,7 @@ export default function GeoExplorerAPIRoutes(geoExplorerServices) {
         const country = req.params.country;
 
         const countryId = await geoExplorerServices.getCountryId(country);
+        console.log(countryId)
 
         const questions = await geoExplorerServices.getQuestionsForCountry(countryId);
 
@@ -31,10 +32,20 @@ export default function GeoExplorerAPIRoutes(geoExplorerServices) {
         })
         
     }
+
+    async function register(req, res) {
+        const username = req.body.username;
+    
+        await geoExplorerServices.registerUser(username);
+    
+        res.redirect("/visualModel")
+    
+      }
     
     return {
       getPlayerNames,
       getQuestions,
-      getMoreInfo
+      getMoreInfo,
+      register
     };
 }
