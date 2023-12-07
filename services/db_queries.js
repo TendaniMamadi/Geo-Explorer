@@ -1,6 +1,6 @@
 export default function GeoExplorerServices(db) {
     async function getUserNames() {
-        const selectQuery = `SELECT * FROM players`;
+        const selectQuery = `SELECT * FROM players ORDER BY score DESC`;
         const result = await db.any(selectQuery);
         
         return result;
