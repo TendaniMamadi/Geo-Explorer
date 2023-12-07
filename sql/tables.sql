@@ -13,6 +13,7 @@ CREATE TABLE questions(
 id SERIAL PRIMARY KEY,
 question TEXT NOT NULL UNIQUE,
 answer TEXT NOT NULL,
+options TEXT[],
 country_id INT REFERENCES countries(id);
 );
 CREATE TABLE phrases(
