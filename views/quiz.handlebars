@@ -7,14 +7,14 @@
     <div class="countries">
       {{#each options}}
       <div>
-        <input type="radio" name="{{../ this.question}}" value="{{this}}">{{this}}
+        <input type="radio" name="{{../ this.question}}" value="{{this}}">
+        <label> {{this}}</label>
       </div>
       {{/each}}
     </div>
   </div>
   {{/each}}
   <button type="submit">Submit</button>
-  {{!-- <button type="submit">Next</button> --}}
 </div>
 
 <style>
@@ -75,7 +75,6 @@
 
 
   input {
-    width: 100%;
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;
@@ -93,7 +92,7 @@
 
   .quiz {
    width: 90%;
-  max-width: 400px;
+  max-width: 900px;
   height: auto;
   background: rgba(255, 255, 255, 0.835);
   border: 1px solid white;
@@ -109,7 +108,7 @@
   .countries {
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 100%;
     justify-content: center;
   }
 
@@ -122,6 +121,7 @@
     color: #000000;
     font-size: 18px;
     border-radius: 20px;
+    margin-top: 20px;
   }
 
   .quiz button[type="submit"]:hover {
@@ -140,6 +140,11 @@
     background-attachment: fixed;
     overflow: hidden;
   }
+
+  .countries div * {
+    display: inline;
+  }
+
 </style>
 <script>
     const form = document.querySelector("form");
