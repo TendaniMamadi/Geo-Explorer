@@ -1,14 +1,15 @@
  <div class="quiz">
       <h2>Quiz Time</h2>
-      {{!-- {{#each questions}} --}}
+      {{#each questions}}
         <div class="question">
-          <p>{{questions}}</p>
-          {{!-- {{#each options}}
-          <li>{{this}}</li>
-          {{/each}} --}}
-          <input type="text" id="{{question}}" placeholder="Your answer">
+          <p>{{this.question}}</p>
+          {{#each options}}
+          <div>
+             <input type="radio" name="option" value="{{this}}">{{this}}
+          </div>
+           {{/each}}
         </div>
-      {{!-- {{/each}} --}}
-       <button type="submit">Back</button>
-        <button type="submit">Next</button>
+      {{/each}}
+       <button type="submit">Submit</button>
+        {{!-- <button type="submit">Next</button> --}}
     </div>

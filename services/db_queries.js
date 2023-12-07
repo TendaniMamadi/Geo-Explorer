@@ -22,11 +22,11 @@ export default function GeoExplorerServices(db) {
 
     async function getQuestionsForCountry(countryId) {
         try {
-             const selectQuery = `SELECT question FROM questions WHERE country_id = $1`
-        const result = await db.oneOrNone(selectQuery, [countryId])
+             const selectQuery = `SELECT * FROM questions WHERE country_id = $1`
+        const result = await db.many(selectQuery, [countryId])
 
-        if (!result?.question) return null;
-        return result.question;
+        if (!result) return null;
+        return result;
         } catch (error) {
              console.log(error);
              return null;
@@ -37,7 +37,7 @@ export default function GeoExplorerServices(db) {
     async function getCountryFacts(country) {
         const selectQuery = `SELECT moreinfo FROM countries WHERE countryname = $1`
         const result = await db.any(selectQuery, [country]);
-
+      
         return result[0].moreinfo
     }
     return {
