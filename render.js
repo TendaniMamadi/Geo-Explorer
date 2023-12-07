@@ -25,7 +25,7 @@ export default function displayData() {
     // console.log(country);
 
     const response = await axios.get(
-      `https://geo-explorer-rvdp.onrender.com//api/moreInfo?country=${country}`
+      `https://geo-explorer-rvdp.onrender.com/api/moreInfo?country=${country}`
     );
 
 
