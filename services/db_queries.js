@@ -40,6 +40,15 @@ export default function GeoExplorerServices(db) {
 
         return result[0].moreinfo
     }
+
+    
+
+
+    async function registerUser(username) {
+      const insertQuery = `INSERT INTO players(username, score) VALUES ($1, 0)`;
+
+      await db.none(insertQuery, [username])
+    }
     return {
       getUserNames,
       getCountryId,
