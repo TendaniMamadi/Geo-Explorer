@@ -39,6 +39,7 @@ export default function displayData() {
     res.render("moreInfo", { moreInfoData, country });
   }
 
+
   return {
     getPlayer,
     getQuestions,
