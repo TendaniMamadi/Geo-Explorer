@@ -40,6 +40,10 @@ export default function GeoExplorerServices(db) {
 
         return result[0].moreinfo
     }
+
+    
+
+
     return {
       getUserNames,
       getCountryId,
