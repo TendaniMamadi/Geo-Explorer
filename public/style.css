@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@300;400&family=Young+Serif&display=swap');
 
+:root {
+  --primary: #ffcc00;
+  --secondary: black;
+}
+
 /* Homepage */
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   text-align: center;
+
+
 }
 
 header {
@@ -13,10 +20,13 @@ header {
 }
 
 h1 {
-  color: #ffcc00;
-  background: black;
+  color: var(--primary);
+  background: var(--secondary);
   opacity: 0.8;
   font-family: "Young Serif";
+}
+h2{
+  color: black;
 }
 
 @keyframes fadeIn {
@@ -57,6 +67,7 @@ h1 {
   background-position: center center;
   background-attachment: fixed;
   overflow: hidden;
+ 
 }
 
 .question {
@@ -66,7 +77,7 @@ h1 {
 input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #2a2b2c;
   border-radius: 5px;
 }
 
@@ -95,24 +106,23 @@ td {
   width: 90%;
   max-width: 400px;
   height: auto;
-  background: rgba(0, 0, 0, 0.605);
+  background: rgba(255, 255, 255, 0.835);
   border: 1px solid white;
-  box-shadow: 10px 5px 5px rgb(229, 227, 227);
-  color: white;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
+  color: black ;
 }
 
-.user-info input[type='text'] {
+input[type='text'] {
   border: none;
-  border: 1px solid #fff;
+  border: 1px solid #302e2e;
   background: transparent;
   margin: 5px;
   outline: none;
-  color: #fff;
+  color: black;
   font-size: 16px;
 }
 
@@ -121,10 +131,11 @@ td {
   outline: none;
   width: 100px;
   height: 40px;
-  background: rgb(229, 227, 227);
+  background: #ffcc00;
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
+  
 }
 
 .user-info button[type="submit"]:hover {
@@ -134,15 +145,17 @@ td {
 }
 
 label {
-  color: antiquewhite;
+  color: black;
+
 }
 
 p {
-  color: antiquewhite;
+  color: black;
+
 }
 
 h2 {
-  color: antiquewhite;
+  color: black;
   text-align: center;
 }
 
@@ -152,15 +165,14 @@ h2 {
   width: 90%;
   max-width: 400px;
   height: auto;
-  background: rgba(0, 0, 0, 0.605);
+  background: rgba(255, 255, 255, 0.835);
   border: 1px solid white;
-  box-shadow: 10px 5px 5px rgb(229, 227, 227);
-  color: white;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
+  color: black ;
 }
 
 .flag-recognition button,
@@ -169,11 +181,10 @@ h2 {
   outline: none;
   width: 100px;
   height: 40px;
-  background: rgb(229, 227, 227);
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
-
+  background: #ffcc00;
 }
 
 .flag-recognition button:hover,
@@ -190,15 +201,14 @@ h2 {
   width: 90%;
   max-width: 400px;
   height: auto;
-  background: rgba(0, 0, 0, 0.605);
+  background: rgba(255, 255, 255, 0.835);
   border: 1px solid white;
-  box-shadow: 10px 5px 5px rgb(229, 227, 227);
-  color: white;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
+  color: black ;
 }
 
 .leaderboard button {
@@ -206,16 +216,10 @@ h2 {
   outline: none;
   width: 100px;
   height: 40px;
-  background: rgb(229, 227, 227);
+  background: #ffcc00;
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
-  
-}
-
-.leaderboard .button{
-  text-decoration: none;
-  color: #000000;
 }
 
 .leaderboard button:hover {
@@ -256,7 +260,7 @@ h2 {
   outline: none;
   width: 100px;
   height: 40px;
-  background: rgb(229, 227, 227);
+  background: #ffcc00;
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
@@ -274,15 +278,14 @@ h2 {
   width: 90%;
   max-width: 400px;
   height: auto;
-  background: rgba(0, 0, 0, 0.605);
+  background: rgba(255, 255, 255, 0.835);
   border: 1px solid white;
-  box-shadow: 10px 5px 5px rgb(229, 227, 227);
-  color: white;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
+  color: black ;
 }
 
 .quiz button[type="submit"] {
@@ -290,7 +293,7 @@ h2 {
   outline: none;
   width: 100px;
   height: 40px;
-  background: rgb(229, 227, 227);
+  background: #ffcc00;
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
@@ -311,15 +314,14 @@ h2 {
   width: 90%;
   max-width: 400px;
   height: auto;
-  background: rgba(0, 0, 0, 0.605);
+  background: rgba(255, 255, 255, 0.835);
   border: 1px solid white;
-  box-shadow: 10px 5px 5px rgb(229, 227, 227);
-  color: white;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
+  color: black ;
 }
 
 .moreInfo button[type="submit"] {
@@ -327,7 +329,7 @@ h2 {
   outline: none;
   width: 100px;
   height: 40px;
-  background: rgb(229, 227, 227);
+  background: #ffcc00;
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
@@ -362,7 +364,7 @@ h2 {
   outline: none;
   width: 100px;
   height: 40px;
-  background: rgb(229, 227, 227);
+  background: #ffcc00;
   color: #000000;
   font-size: 18px;
   border-radius: 20px;

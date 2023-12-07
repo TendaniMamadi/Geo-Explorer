@@ -18,7 +18,7 @@ export default function displayData() {
     
     var options = ["Nairobi", "Mombasa", "Kisumu", "Nakuru"]
 
-    res.render("quiz", questionData)
+    res.render("quiz", { questionData, country })
   }
 
   async function getMoreInfo(req, res) {

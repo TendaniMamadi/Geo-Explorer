@@ -41,11 +41,32 @@ export default function GeoExplorerAPIRoutes(geoExplorerServices) {
         res.redirect("/visualModel")
     
       }
+
+      async function submitAnswers(req, res) {
+        const country = req.params.country;
+        const username = req.query.user;
+        const answers = req.body;
+        const q1 = `What is the major mineral of ${country}?`;
+        const q2 = `What is a major social issue faced by ${country}?`
+        const q3 = `What is the capital of Nigeria? ${country}`
+        const q4 = `What is the tourist destination of ${country}?`
+        
+        for (let question in answers){
+            const answer = await geoExplorerServices.checkAnswer(question)
+            if (answer === answers[question]) {
+                await geoExplorerServices.addPoints(username)
+            } 
+        }
+
+        res.redirect("/leaderBoard")
+      }
+
     
     return {
       getPlayerNames,
       getQuestions,
       getMoreInfo,
-      register
+      register,
+      submitAnswers
     };
 }
