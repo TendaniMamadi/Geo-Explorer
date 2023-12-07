@@ -2,7 +2,7 @@ import axios from "axios"
 
 export default function displayData() {
   async function getPlayer(req, res) {
-    const response = await axios.get("https://geo-explorer-rvdp.onrender.com//api/names");
+    const response = await axios.get("https://geo-explorer-rvdp.onrender.com/api/names");
 
     var responseData = response.data
 
@@ -12,7 +12,7 @@ export default function displayData() {
   async function getQuestions(req, res) {
     const country = req.params.country
 
-    const response = await axios.get(`https://geo-explorer-rvdp.onrender.com//api/questions/${country}`);
+    const response = await axios.get(`https://geo-explorer-rvdp.onrender.com/api/questions/${country}`);
 
     var questionData = response.data
 
