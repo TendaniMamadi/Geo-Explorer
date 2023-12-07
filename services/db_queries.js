@@ -44,7 +44,6 @@ export default function GeoExplorerServices(db) {
       getUserNames,
       getCountryId,
       getQuestionsForCountry,
-      getCountryFacts,
-      registerUser
+      getCountryFacts
     };
 }
