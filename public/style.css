@@ -173,6 +173,7 @@ h2 {
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
+
 }
 
 .flag-recognition button:hover,
@@ -209,6 +210,12 @@ h2 {
   color: #000000;
   font-size: 18px;
   border-radius: 20px;
+  
+}
+
+.leaderboard .button{
+  text-decoration: none;
+  color: #000000;
 }
 
 .leaderboard button:hover {

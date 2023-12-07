@@ -49,6 +49,9 @@ export default function GeoExplorerServices(db) {
 
       await db.none(insertQuery, [username])
     }
+
+
+    
     return {
       getUserNames,
       getCountryId,
