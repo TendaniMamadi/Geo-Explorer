@@ -1,4 +1,5 @@
 export default function GeoExplorerAPIRoutes(geoExplorerServices) {
+    
     async function getPlayerNames(req, res) {
         let listOfPlayers = await geoExplorerServices.getUserNames();
 
