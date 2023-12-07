@@ -1,16 +1,18 @@
  <div class="quiz">
       <h2>Quiz Time</h2>
-      {{#each questions}}
+      <form action="/quiz/{{this.country}}" method="POST">
+      {{#each questionData.questions}}
         <div class="question">
           <p>{{this.question}}</p>
           {{#each options}}
           <div>
-             <input type="radio" name="option" value="{{this}}">{{this}}
+             <input type="radio" name="{{../ this.question}}" value="{{this}}">{{this}}
           </div>
            {{/each}}
         </div>
       {{/each}}
        <button type="submit">Submit</button>
+       </form>
         {{!-- <button type="submit">Next</button> --}}
     </div>
 
@@ -128,3 +130,13 @@
     overflow: hidden;
   }
 </style>
+<script>
+    const form = document.querySelector("form");
+
+    const username = sessionStorage.getItem("user");
+
+    const action = `${form.action}?user=${username}`;
+
+    form.action = action;
+
+</script>
