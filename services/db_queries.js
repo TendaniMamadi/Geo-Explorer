@@ -46,14 +46,22 @@ export default function GeoExplorerServices(db) {
 
   async function registerUser(username) {
 
-     const existingUser = await db.any(`SELECT username FROM players WHERE username = $1`, [username])
-      
-    if (!existingUser) {
-      const insertQuery = `INSERT INTO players(username, score) VALUES ($1, 0)`;
-            await db.none(insertQuery, [username])
-    }
-     
+     try {
+       const existingUser = await db.any(
+         `SELECT username FROM players WHERE username = $1`,
+         [username]
+       );
 
+       if (existingUser.length === 0) {
+         const insertQuery = `INSERT INTO players(username, score) VALUES ($1, 0)`;
+         await db.none(insertQuery, [username]);
+         
+       } else {
+         console.log(`User ${username} already exists in the database.`);
+       }
+     } catch (error) {
+       console.error("Error during user registration:", error);
+     }
 
     }
 
