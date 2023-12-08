@@ -16,14 +16,30 @@ body {
 }
 
 header {
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
+
+nav {
+  margin-left: 380px;
+}
+
+nav a{
+  text-decoration: none;
+  color: #ffcc00;
+  font-family: "Young Serif";
+  font-size: 24px;
+}
+
 
 h1 {
   color: var(--primary);
   background: var(--secondary);
   opacity: 0.8;
   font-family: "Young Serif";
+  /* margin-right: 200px; */
 }
 h2{
   color: black;
@@ -93,12 +109,14 @@ footer {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 td {
   border: 1px solid black;
   padding: 10px;
   color: black;
+  /* padding-left: 0; */
 }
 
 

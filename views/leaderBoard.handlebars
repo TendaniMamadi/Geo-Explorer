@@ -1,13 +1,17 @@
 <div class="leaderboard">
     <h2>Leaderboard</h2>
-    {{#each listOfPlayers}}
     <table>
+        <tr>
+            <th>Player</th>
+            <th>Score</th>
+        </tr>
+    {{#each listOfPlayers}}
         <tr>
             <td>{{username}}</td>
             <td>{{score}}</td>
         </tr>
-    </table>
     {{/each}}
+    </table>
     <button><a href="/" class="button">Homepage</a></button>
 
 </div>
