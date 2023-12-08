@@ -3,7 +3,7 @@
       <form action="/quiz/{{this.country}}" method="POST">
   {{#each questionData.questions}}
   <div class="question">
-    <p>{{this.question}}</p>
+    <p style="font-weight:bolder;">{{this.question}}</p>
     <div class="countries">
       {{#each options}}
       <div>
@@ -36,6 +36,10 @@
     background: black;
     opacity: 0.8;
     font-family: "Young Serif";
+  }
+
+  nav{
+    display: none;
   }
 
   @keyframes fadeIn {
