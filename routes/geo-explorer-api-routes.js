@@ -36,6 +36,7 @@ export default function GeoExplorerAPIRoutes(geoExplorerServices) {
     async function register(req, res) {
         const username = req.body.username;
     
+        
         await geoExplorerServices.registerUser(username);
     
         res.redirect("/visualModel")

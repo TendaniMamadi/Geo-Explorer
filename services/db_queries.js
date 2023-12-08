@@ -44,10 +44,17 @@ export default function GeoExplorerServices(db) {
     
 
 
-    async function registerUser(username) {
-      const insertQuery = `INSERT INTO players(username, score) VALUES ($1, 0)`;
+  async function registerUser(username) {
 
-      await db.none(insertQuery, [username])
+     const existingUser = await db.any(`SELECT username FROM players WHERE username = $1`, [username])
+      
+    if (!existingUser) {
+      const insertQuery = `INSERT INTO players(username, score) VALUES ($1, 0)`;
+            await db.none(insertQuery, [username])
+    }
+     
+
+
     }
 
     async function checkAnswer(question) {
@@ -58,7 +65,8 @@ export default function GeoExplorerServices(db) {
       return result.answer;
     }
 
-    async function addPoints(username) {
+  async function addPoints(username) {
+      
       const updateQuery = `UPDATE players SET score = score + 2 WHERE username = $1`;
 
       await db.none(updateQuery, [username])
